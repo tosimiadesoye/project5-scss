@@ -1,0 +1,15 @@
+body {
+  background-color: #9c0d9c;
+  color: #ffffff;
+}
+
+.side {
+  text-align: center;
+  font-weight: 5rem;
+}
+.side h1 {
+  margin-top: 200px;
+}
+.side h3 {
+  margin-left: 100px;
+}

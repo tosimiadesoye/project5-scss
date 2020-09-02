@@ -1,0 +1,161 @@
+$accent-color: rgb(33, 41, 3);
+$primary-color: rgb(58, 202, 82);
+$default-color: rgb(97, 58, 58);
+$cancel-btn: rgb(138, 14, 14);
+$width: 20rem;
+$pixes:(
+  "small": 0,
+  "big":30px,
+  "large": 100px
+);
+
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400&display=swap");
+
+@mixin contain {
+    font-family: 'Montserrat', sans-serif;
+    color: $default-color;
+    display: flex;
+    flex-direction: column;
+   // margin-left: 50px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    margin-bottom: map-get($pixes, large); 
+    //text-align: center;
+    justify-content: center; 
+    resize: vertical;   
+}
+
+@mixin interpolate($prop1, $prop2,$prob3,$val) {
+    #{$prop1} : 15px;
+    #{$prop2}:10px;
+    #{$prob3}: $val;
+    background-color: transparent;
+    width: $width;
+}
+
+@mixin background {
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(153, 165, 44);
+    position: relative;
+    z-index: 2;
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 0.3;
+        z-index: -1;
+    }
+}
+@mixin button {
+    border-radius: 15px;
+    background-color: $cancel-btn;
+    margin-bottom: 10px; 
+  
+}
+
+*{
+    font-size: 30px;
+    font-family: 'Krona One', sans-serif;
+    
+    
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+    background-color: indianred;
+}
+
+
+
+.navbar-container {
+    
+    &.list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    li { display: inline-block; }
+  
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: $default-color;
+    }
+    
+    & a:hover{
+    color: $primary-color;
+}
+  }
+
+  
+
+  .container{
+      @include contain;
+      @include background;
+      
+
+      &:hover{
+      color: $primary-color;
+  }
+
+   input{
+       @include interpolate(border-radius,margin,border,2px solid rgb(19, 27, 43) );
+   }
+       ::placeholder{
+         color: rgb(75, 39, 39);
+         opacity: 0.3;
+       }
+  }
+
+  .cancelbtn{
+    @include button;
+
+    &:hover{
+        background-color: $accent-color;
+    }
+  }
+
+  .signupbtn{
+      @include button;
+      background-color: rgb(94, 118, 184);    
+
+      &:hover{
+        background-color: $cancel-btn;
+    }
+  }
+
+  .footer-container{
+     input[type=text], select, textarea {
+      width: 50%;
+      padding: $width  - 19.8rem;
+      display: flex;
+      border: 1px solid black;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+      background-color: transparent;
+    }
+
+    ::placeholder{
+      color: rgb(75, 39, 39);
+      opacity: 0.3;
+    }
+    
+    }
+  
+  
